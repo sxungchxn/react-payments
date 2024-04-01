@@ -72,7 +72,7 @@ export const CardInputFormStep = ({ onSubmit, onClickPrev }: CardInputFormStepPr
     setCardInput('cardCode')(value)
   }
 
-  const handleopenCVCNumberPad = () => {
+  const handleOpenCVCNumberPad = () => {
     openOverlay(
       <SecurityNumberPad
         key="card-cvc"
@@ -164,7 +164,7 @@ export const CardInputFormStep = ({ onSubmit, onClickPrev }: CardInputFormStepPr
               value={cardCVC}
               readOnly
               onKeyDown={e => e.preventDefault()}
-              onFocus={handleopenCVCNumberPad}
+              onFocus={handleOpenCVCNumberPad}
               error={cardInputError.cardCVC}
             />
             <Tooltip label="카드 뒷면의 CVC란을 확인하세요">
