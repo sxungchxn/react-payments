@@ -1,10 +1,7 @@
 import { createSecurityNumberPadArray } from '@/utils/create-security-number-pad-array'
 
 describe('createSecurityNumberPadArray testing', () => {
-  const result = createSecurityNumberPadArray({
-    numberPadCount: 10,
-    totalPadCount: 15,
-  })
+  const result = createSecurityNumberPadArray(15)
 
   test('10개의 0부터 9까지의 숫자들을 중복없이 반환한다', () => {
     const onlyNumbers = result.filter(val => typeof val === 'number')
