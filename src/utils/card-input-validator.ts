@@ -1,9 +1,6 @@
-import { INITIAL_CARD_INPUT_STATE } from '@/constants/card-state'
 import type { CardInputState, CardInputErrorState } from '@/types/card'
 
 class CardInputValidator {
-  cardInput = INITIAL_CARD_INPUT_STATE
-
   validateCardType(cardType: CardInputState['cardType']) {
     return cardType !== undefined ? undefined : '카드사를 선택해주세요'
   }
