@@ -1,9 +1,6 @@
-import { INITIAL_CARD_INPUT_STATE } from '@/constants/card-state'
 import type { CardInputState, CardInputErrorState } from '@/types/card'
 
 class CardInputValidator {
-  cardInput = INITIAL_CARD_INPUT_STATE
-
   validateCardType(cardType: CardInputState['cardType']) {
     return cardType !== undefined ? undefined : '카드사를 선택해주세요'
   }
@@ -12,7 +9,7 @@ class CardInputValidator {
     return cardCode.length < codeLength ? `카드 번호 ${codeLength}자리를 입력해주세요` : undefined
   }
 
-  validateCardExpDate(cardExpDate: CardInputState['cardExpDate'], expDateLength = 4) {
+  validateCardExpDate(cardExpDate: CardInputState['cardExpDate'], expDateLength = 5) {
     return cardExpDate.length < expDateLength
       ? '카드 만료일을 MM/YY 형식으로 입력해주세요'
       : undefined

@@ -54,10 +54,7 @@ export const SecurityNumberPad = ({
           {title}
         </Text>
         <Box className={styles.padGrid}>
-          {createSecurityNumberPadArray({
-            numberPadCount: 10,
-            totalPadCount: 15,
-          }).map((securityPadValue, idx) => (
+          {createSecurityNumberPadArray(15).map((securityPadValue, idx) => (
             <Flex
               key={idx}
               className={styles.pad}
