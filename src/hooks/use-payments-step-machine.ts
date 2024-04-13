@@ -3,8 +3,8 @@ import { Snapshot } from 'xstate'
 import { useMachine } from '@xstate/react'
 import { paymentsMachine } from '@/xstate/payments-machine'
 
-const STORAGE_KEY = 'payments'
-const storageValue = localStorage.getItem(STORAGE_KEY)
+export const STORAGE_KEY = '@sxungchxn/react-payments'
+export const storageValue = localStorage.getItem(STORAGE_KEY)
 const persistedState = storageValue ? (JSON.parse(storageValue) as Snapshot<unknown>) : undefined
 
 export const usePaymentsStepMachine = () => {
