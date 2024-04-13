@@ -1,5 +1,5 @@
 import { Card, Flex, Text, Header, Box } from '@/components'
-import { IconPlus, IconTrash } from '@tabler/icons-react'
+import { IconEdit, IconPlus, IconTrash } from '@tabler/icons-react'
 import { CardState } from '@/types/card'
 import { vars } from '@/styles'
 
@@ -8,6 +8,7 @@ export interface CardListStepProps {
   onClickRegisterButton: () => void
   onClickStartEditButton: (card: CardState) => void
   onClickRemoveButton: (targetId: string) => void
+  onSelectCard?: (card: CardState) => void
 }
 
 export const CardListStep = ({
@@ -15,7 +16,12 @@ export const CardListStep = ({
   onClickRegisterButton,
   onClickStartEditButton,
   onClickRemoveButton,
+  onSelectCard,
 }: CardListStepProps) => {
+  const handleSelectCard = (card: CardState) => () => {
+    onSelectCard?.(card)
+  }
+
   const handleStartEditCard = (card: CardState) => () => {
     onClickStartEditButton(card)
   }
@@ -58,7 +64,7 @@ export const CardListStep = ({
                   cardExpDate={cardExpDate}
                   cardType={cardType}
                   marginBottom="8px"
-                  onClick={handleStartEditCard(card)}
+                  onClick={handleSelectCard(card)}
                 />
                 <Flex alignItems="center" gap="8px">
                   <Text variant="body2">{cardNickName}</Text>
@@ -67,6 +73,13 @@ export const CardListStep = ({
                       size={24}
                       color={vars.color.gray500}
                       onClick={handleClickRemoveCardButton(id)}
+                    />
+                  </Box>
+                  <Box as="button">
+                    <IconEdit
+                      size={24}
+                      color={vars.color.gray500}
+                      onClick={handleStartEditCard(card)}
                     />
                   </Box>
                 </Flex>

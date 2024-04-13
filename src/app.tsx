@@ -1,12 +1,14 @@
 import { OverlayContextProvider } from '@/contexts/overlay-context'
 import { CardInputContextProvider } from '@/contexts/card-input-context'
 import { CardInputFormStep } from '@/steps/card-register'
-import { CardListStep } from './steps/card-list'
+import { CardListStep, CardListStepProps } from './steps/card-list'
 import { CardNicknameInputStep } from '@/steps/card-nickname-input'
 import { Flex, FlexElements, FlexProps, Stepper } from '@/components'
 import { usePaymentsStepMachine } from '@/hooks/use-payments-step-machine'
 
-export type PaymentsAppProps<C extends FlexElements> = FlexProps<C>
+export type PaymentsAppProps<C extends FlexElements> = FlexProps<C> & {
+  onSelectCard?: CardListStepProps['onSelectCard']
+}
 
 export const PaymentsApp = <C extends FlexElements = 'div'>(props: PaymentsAppProps<C>) => {
   const [currentStep, { cardList, cardBeforeRegister }, send] = usePaymentsStepMachine()
