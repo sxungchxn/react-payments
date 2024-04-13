@@ -64,6 +64,15 @@ import { Text, Flex } from '@sxungchxn/react-payments'
 
 /* Using theme */
 import { vars } from '@sxungchxn/react-payments'
+
+/* get payments apps' card-list*/
+import { usePaymentsCardInfo } from '@sxungchxn/react-payments'
+
+/**
+ *  typeof cardList = Array<CardState>
+ */
+const cardList = usePaymentsCardInfo() 
+
 ```
 
 <br/>
